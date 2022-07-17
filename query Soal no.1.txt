@@ -1,0 +1,6 @@
+SELECT a.karyawan AS Nama,a.kpi AS KPI,b.target AS Target,CASE a.karyawan 
+    WHEN a.aktual <= deadline THEN '1'
+    WHEN a.aktual > deadline THEN '2'
+    ELSE a.karyawan
+END AS Actual,b.bobot AS Actual_Bobot,((a.hasil_aktual)/(b.target) * 100)AS Pencapaian 
+FROM tbl_kpi_marketing a JOIN tbl_bobot_kpi_marketing b ON a.kpi=b.kpi GROUP BY a.karyawan

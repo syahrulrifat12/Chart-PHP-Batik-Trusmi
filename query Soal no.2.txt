@@ -1,0 +1,7 @@
+SELECT a.karyawan AS Nama,COUNT(*) AS jumlah_tasklist,CASE a.karyawan 
+    WHEN a.aktual <= deadline THEN 'Ontime'
+    WHEN a.aktual > deadline THEN 'Late'
+    ELSE a.karyawan
+END AS leadtime,((a.hasil_aktual)/(b.target) * 100)AS persentase 
+FROM tbl_kpi_marketing a JOIN tbl_bobot_kpi_marketing b ON a.kpi=b.kpi 
+GROUP BY a.karyawan
