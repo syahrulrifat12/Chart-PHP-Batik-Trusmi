@@ -1,2 +1,7 @@
 # Test_project_batik_trusmi
-test
+
+
+
+file ini berisi project grafik test 
+
+
